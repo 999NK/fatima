@@ -17,11 +17,20 @@ class MyHTTPRequestHandler(http.server.SimpleHTTPRequestHandler):
 
     def do_GET(self):
         if self.path == '/':
-            self.path = '/index.html'
+            self.path = '/asset/index.html'
         elif self.path == '/premios':
-            self.path = '/premios.html'
+            self.path = '/asset/premios.html'
         elif self.path == '/doacao':
-            self.path = '/doacao.html'
+            self.path = '/asset/doacao.html'
+        elif self.path == '/quemsomos':
+            self.path = '/asset/quemsomos.html'
+        elif self.path == '/brindes-catolicos':
+            self.path = '/asset/brindes-catolicos.html'
+        # Para páginas com extensão .html na URL
+        elif self.path.endswith('.html'):
+            # Se não tem o prefixo /asset/, adiciona
+            if not self.path.startswith('/asset/'):
+                self.path = '/asset' + self.path
         return super().do_GET()
 
 if __name__ == "__main__":
