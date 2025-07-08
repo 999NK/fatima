@@ -72,6 +72,76 @@ window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/15
 <link rel='stylesheet' id='elementor-frontend-css' href='https://fatima.org.br/wp-content/plugins/elementor/assets/css/frontend.min.css?ver=3.30.1' media='all' />
 <link rel='stylesheet' id='eael-general-css' href='https://fatima.org.br/wp-content/plugins/essential-addons-for-elementor-lite/assets/front-end/css/view/general.min.css?ver=6.1.4' media='all' />
 <link rel='stylesheet' id='eael-31910-css' href='https://fatima.org.br/wp-content/uploads/essential-addons-elementor/eael-31910.css?ver=1751446168' media='all' />
+
+<style>
+.simple-navigation {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.main-nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 800px;
+}
+
+.nav-menu {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    gap: 2rem;
+}
+
+.nav-menu li a {
+    color: white;
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+}
+
+.nav-menu li a:hover,
+.nav-menu li a.current {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+.mobile-toggle {
+    display: none;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+@media (max-width: 768px) {
+    .nav-menu {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: #8B4513;
+        flex-direction: column;
+        padding: 1rem;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    
+    .nav-menu.active {
+        display: flex;
+    }
+    
+    .mobile-toggle {
+        display: block;
+    }
+}
+</style>
+
 <link rel='stylesheet' id='widget-image-css' href='https://fatima.org.br/wp-content/plugins/elementor/assets/css/widget-image.min.css?ver=3.30.1' media='all' />
 <link rel='stylesheet' id='elementor-icons-css' href='https://fatima.org.br/wp-content/plugins/elementor/assets/lib/eicons/css/elementor-icons.min.css?ver=5.43.0' media='all' />
 <style id='elementor-icons-inline-css'>
@@ -297,34 +367,17 @@ src="https://www.facebook.com/tr?id=651321464968752&ev=PageView
     </div>
         <div class="has_ae_slider elementor-column elementor-col-33 elementor-top-column elementor-element elementor-element-3b3ca77 ae-bg-gallery-type-default" data-id="3b3ca77" data-element_type="column">
       <div class="elementor-widget-wrap elementor-element-populated">
-            <div class="elementor-element elementor-element-0099a86 eael_simple_menu_hamburger_disable_selected_menu_hide elementor-widget__width-initial eael-hamburger--mobile eael-simple-menu-hamburger-align-right elementor-widget elementor-widget-eael-simple-menu" data-id="0099a86" data-element_type="widget" data-widget_type="eael-simple-menu.default">
-        <div class="elementor-widget-container">
-          <style>
-                        @media screen and (max-width: 767px) {
-                            .eael-hamburger--mobile {
-                                .eael-simple-menu-horizontal,
-                                .eael-simple-menu-vertical {
-                                    display: none;
-                                }
-                            }
-                            .eael-hamburger--mobile {
-                                .eael-simple-menu-container .eael-simple-menu-toggle {
-                                    display: block;
-                                }
-                            }
-                        }
-                    </style>            <div data-hamburger-icon="&lt;svg aria-hidden=&quot;true&quot; class=&quot;e-font-icon-svg e-fas-bars&quot; viewBox=&quot;0 0 448 512&quot; xmlns=&quot;http://www.w3.org/2000/svg&quot;&gt;&lt;path d=&quot;M16 132h416c8.837 0 16-7.163 16-16V76c0-8.837-7.163-16-16-16H16C7.163 60 0 67.163 0 76v40c0 8.837 7.163 16 16 16zm0 160h416c8.837 0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837 0-16 7.163-16 16v40c0 8.837 7.163 16 16 16zm0 160h416c8.837 0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837 0-16 7.163-16 16v40c0 8.837 7.163 16 16 16z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;" data-indicator-icon="&lt;svg aria-hidden=&quot;true&quot; class=&quot;e-font-icon-svg e-fas-angle-down&quot; viewBox=&quot;0 0 320 512&quot; xmlns=&quot;http://www.w3.org/2000/svg&quot;&gt;&lt;path d=&quot;M143 352.3L7 216.3c-9.4-9.4-9.4-24.6 0-33.9l22.6-22.6c9.4-9.4 24.6-9.4 33.9 0l96.4 96.4 96.4-96.4c9.4-9.4 24.6-9.4 33.9 0l22.6 22.6c9.4 9.4 9.4 24.6 0 33.9l-136 136c-9.2 9.4-24.4 9.4-33.8 0z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;" data-dropdown-indicator-icon="&lt;svg class=&quot;e-font-icon-svg e-fas-angle-down&quot; viewBox=&quot;0 0 320 512&quot; xmlns=&quot;http://www.w3.org/2000/svg&quot;&gt;&lt;path d=&quot;M143 352.3L7 216.3c-9.4-9.4-9.4-24.6 0-33.9l22.6-22.6c9.4-9.4 24.6-9.4 33.9 0l96.4 96.4 96.4-96.4c9.4-9.4 24.6-9.4 33.9 0l22.6 22.6c9.4 9.4 9.4 24.6 0 33.9l-136 136c-9.2 9.4-24.4 9.4-33.8 0z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;" class="eael-simple-menu-container eael-simple-menu-align-center eael-simple-menu--stretch eael-simple-menu-dropdown-align-center preset-1" data-hamburger-breakpoints="{&quot;mobile&quot;:&quot;Dispositivos m\u00f3veis no modo retrato (&gt; 767px)&quot;,&quot;tablet&quot;:&quot;Tablet no modo retrato (&gt; 1024px)&quot;,&quot;desktop&quot;:&quot;Desktop (&gt; 2400px)&quot;,&quot;none&quot;:&quot;Nenhum&quot;}" data-hamburger-device="mobile">
-                <ul id="menu-menu-1" class="eael-simple-menu eael-simple-menu-dropdown-animate-zoom-out eael-simple-menu-indicator eael-simple-menu-horizontal">
-<li id="menu-item-home" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home menu-item-home"><a href="/">Home</a></li>
-<li id="menu-item-quem-somos" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-quem-somos"><a href="/quemsomos.html">Quem Somos</a></li>
-<li id="menu-item-brindes" class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item current_page_item menu-item-brindes"><a href="/brindes-catolicos.html" aria-current="page">Brindes Católicos</a></li>
-<li id="menu-item-doacao" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-doacao"><a href="/doacao.html">Doação</a></li>
-</ul>                <button class="eael-simple-menu-toggle">
-                    <span class="sr-only ">Menu de alternância de hambúrguer</span>
-                    <svg aria-hidden="true" class="e-font-icon-svg e-fas-bars" viewBox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><path d="M16 132h416c8.837 0 16-7.163 16-16V76c0-8.837-7.163-16-16-16H16C7.163 60 0 67.163 0 76v40c0 8.837 7.163 16 16 16zm0 160h416c8.837 0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837 0-16 7.163-16 16v40c0 8.837 7.163 16 16 16zm0 160h416c8.837 0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837 0-16 7.163-16 16v40c0 8.837 7.163 16 16 16z"></path></svg>                </button>
+            <div class="simple-navigation">
+                <nav class="main-nav">
+                    <ul class="nav-menu">
+                        <li><a href="/">Home</a></li>
+                        <li><a href="/quemsomos.html">Quem Somos</a></li>
+                        <li><a href="/brindes-catolicos.html" class="current">Brindes Católicos</a></li>
+                        <li><a href="/doacao.html">Doação</a></li>
+                    </ul>
+                    <button class="mobile-toggle">☰</button>
+                </nav>
             </div>
-                    </div>
-        </div>
           </div>
     </div>
         <div class="has_ae_slider elementor-column elementor-col-33 elementor-top-column elementor-element elementor-element-09a4aa6 ae-bg-gallery-type-default" data-id="09a4aa6" data-element_type="column">
@@ -1380,4 +1433,13 @@ var elementorExtrasFrontendConfig = {"urls":{"assets":"https:\/\/fatima.org.br\/
 </defs>
 </svg>
   </body>
+
+<script>
+// Mobile menu toggle
+document.querySelector('.mobile-toggle').addEventListener('click', function() {
+    const navMenu = document.querySelector('.nav-menu');
+    navMenu.classList.toggle('active');
+});
+</script>
+
 </html>
