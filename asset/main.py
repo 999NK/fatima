@@ -18,6 +18,10 @@ class MyHTTPRequestHandler(http.server.SimpleHTTPRequestHandler):
     def do_GET(self):
         if self.path == '/':
             self.path = '/index.html'
+        elif self.path == '/premios':
+            self.path = '/premios.html'
+        elif self.path == '/doacao':
+            self.path = '/doacao.html'
         return super().do_GET()
 
 if __name__ == "__main__":

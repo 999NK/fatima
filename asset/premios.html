@@ -1,0 +1,359 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prêmios - Campanha Vinde Nossa Senhora de Fátima</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        header {
+            background: linear-gradient(135deg, #8B4513, #CD853F);
+            color: white;
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #FFD700;
+        }
+
+        .nav-links a.active {
+            color: #FFD700;
+            font-weight: bold;
+        }
+
+        main {
+            margin-top: 80px;
+            min-height: calc(100vh - 80px);
+            padding: 4rem 2rem;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            text-align: center;
+            color: #8B4513;
+            margin-bottom: 2rem;
+        }
+
+        .intro {
+            text-align: center;
+            font-size: 1.1rem;
+            margin-bottom: 4rem;
+            padding: 2rem;
+            background: #f8f8f8;
+            border-radius: 10px;
+        }
+
+        .prizes-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+
+        .prize-card {
+            background: white;
+            border-radius: 15px;
+            padding: 2rem;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+            border: 3px solid #CD853F;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .prize-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+        }
+
+        .prize-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: linear-gradient(90deg, #8B4513, #CD853F, #FFD700);
+        }
+
+        .prize-amount {
+            background: linear-gradient(135deg, #8B4513, #CD853F);
+            color: white;
+            padding: 1rem;
+            border-radius: 10px;
+            text-align: center;
+            margin-bottom: 1.5rem;
+            font-size: 1.8rem;
+            font-weight: bold;
+        }
+
+        .prize-title {
+            font-size: 1.4rem;
+            color: #8B4513;
+            margin-bottom: 1rem;
+            text-align: center;
+            font-weight: bold;
+        }
+
+        .prize-items {
+            list-style: none;
+            margin-bottom: 1.5rem;
+        }
+
+        .prize-items li {
+            padding: 0.5rem 0;
+            border-bottom: 1px solid #eee;
+            display: flex;
+            align-items: center;
+        }
+
+        .prize-items li:before {
+            content: '🎁';
+            margin-right: 0.5rem;
+        }
+
+        .prize-note {
+            background: #fff9e6;
+            padding: 1rem;
+            border-radius: 8px;
+            border-left: 4px solid #FFD700;
+            font-style: italic;
+            font-size: 0.9rem;
+        }
+
+        .donation-btn {
+            display: block;
+            background: linear-gradient(135deg, #CD853F, #8B4513);
+            color: white;
+            padding: 1rem 2rem;
+            text-decoration: none;
+            border-radius: 8px;
+            text-align: center;
+            margin-top: 1rem;
+            transition: all 0.3s;
+            font-weight: bold;
+        }
+
+        .donation-btn:hover {
+            background: linear-gradient(135deg, #8B4513, #654321);
+            transform: scale(1.05);
+        }
+
+        .special-offer {
+            background: linear-gradient(135deg, #FFD700, #FFA500);
+            color: #333;
+            padding: 3rem;
+            border-radius: 15px;
+            text-align: center;
+            margin: 3rem 0;
+            box-shadow: 0 8px 20px rgba(255, 215, 0, 0.3);
+        }
+
+        .special-offer h2 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        footer {
+            background: #333;
+            color: white;
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .mobile-menu {
+            display: none;
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .mobile-menu {
+                display: block;
+                background: none;
+                border: none;
+                color: white;
+                font-size: 1.5rem;
+                cursor: pointer;
+            }
+
+            .prizes-grid {
+                grid-template-columns: 1fr;
+            }
+
+            main {
+                padding: 2rem 1rem;
+            }
+
+            h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">Nossa Senhora de Fátima</div>
+            <ul class="nav-links">
+                <li><a href="/">Quem Somos</a></li>
+                <li><a href="/premios" class="active">Prêmios</a></li>
+                <li><a href="/doacao">Doar</a></li>
+            </ul>
+            <button class="mobile-menu">☰</button>
+        </nav>
+    </header>
+
+    <main>
+        <div class="container">
+            <h1>Prêmios por Doação</h1>
+            
+            <div class="intro">
+                <h2>Receba brindes católicos abençoados</h2>
+                <p>Como forma de gratidão por sua generosidade, oferecemos belos brindes católicos consagrados de acordo com o valor de sua doação. Todos os itens são benzidos e enviados com muito carinho.</p>
+            </div>
+
+            <div class="prizes-grid">
+                <div class="prize-card">
+                    <div class="prize-amount">R$ 20,00</div>
+                    <div class="prize-title">Brindes Básicos</div>
+                    <ul class="prize-items">
+                        <li>Adesivo de Nossa Senhora de Fátima</li>
+                        <li>Adesivo de São Bento</li>
+                        <li>Adesivo de São Cristóvão</li>
+                        <li>Medalha de São Bento</li>
+                    </ul>
+                    <div class="prize-note">
+                        Itens consagrados e benzidos especialmente para proteção e devoção.
+                    </div>
+                    <a href="/doacao" class="donation-btn">Doar R$ 20,00</a>
+                </div>
+
+                <div class="prize-card">
+                    <div class="prize-amount">R$ 40,00</div>
+                    <div class="prize-title">Kit Devoção</div>
+                    <ul class="prize-items">
+                        <li>Terço perfumado consagrado</li>
+                        <li>Dezena da Medalha de São Bento</li>
+                        <li>Pulseira de Nossa Senhora</li>
+                        <li>Imã de Nossa Senhora Aparecida</li>
+                        <li>Chaveiro Nossa Senhora Aparecida</li>
+                    </ul>
+                    <div class="prize-note">
+                        Kit completo para sua devoção diária com itens especialmente benzidos.
+                    </div>
+                    <a href="/doacao" class="donation-btn">Doar R$ 40,00</a>
+                </div>
+
+                <div class="prize-card">
+                    <div class="prize-amount">R$ 60,00</div>
+                    <div class="prize-title">Kit Família</div>
+                    <ul class="prize-items">
+                        <li>Terço de madeira de São Bento</li>
+                        <li>Escapulário prateado do Carmo</li>
+                        <li>Imagem de São Jorge</li>
+                        <li>Protetora do Lar</li>
+                        <li>Novena de Santo Antônio</li>
+                        <li>Calendário 2025 católico</li>
+                    </ul>
+                    <div class="prize-note">
+                        Perfeito para abençoar toda a família com proteção e devoção.
+                    </div>
+                    <a href="/doacao" class="donation-btn">Doar R$ 60,00</a>
+                </div>
+
+                <div class="prize-card">
+                    <div class="prize-amount">R$ 100,00</div>
+                    <div class="prize-title">Kit Especial</div>
+                    <ul class="prize-items">
+                        <li>Pedestal dourado de São Bento</li>
+                        <li>Imagem dourada de N. Sra. Aparecida</li>
+                        <li>Escapulário dourado e prateado</li>
+                        <li>Dezena retrov perolado</li>
+                        <li>Medalha de São Pio</li>
+                        <li>Livro "O Livro da Confiança"</li>
+                        <li>Sete Alegrias de Maria</li>
+                    </ul>
+                    <div class="prize-note">
+                        Kit premium com itens especiais para uma devoção profunda e duradoura.
+                    </div>
+                    <a href="/doacao" class="donation-btn">Doar R$ 100,00</a>
+                </div>
+            </div>
+
+            <div class="special-offer">
+                <h2>🌟 Oferta Especial 🌟</h2>
+                <p style="font-size: 1.2rem; margin-bottom: 1rem;">Para doações acima de R$ 150,00, você recebe TODOS os brindes anteriores mais itens exclusivos!</p>
+                <a href="/doacao" class="donation-btn" style="display: inline-block; margin-top: 1rem;">Ver Doações Especiais</a>
+            </div>
+
+            <div style="background: #f0f8ff; padding: 2rem; border-radius: 10px; text-align: center;">
+                <h3 style="color: #8B4513; margin-bottom: 1rem;">Importante</h3>
+                <p>Todos os brindes são consagrados e benzidos. O envio é realizado via Correios para todo o Brasil. Prazo de entrega: 7 a 15 dias úteis após a confirmação da doação.</p>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Campanha Vinde Nossa Senhora de Fátima, não tardeis!</p>
+        <p>Rua Virgílio Rodrigues, 44 - Tremembé, São Paulo - SP | CNPJ: 60.758.505/0001-41</p>
+    </footer>
+
+    <script>
+        document.querySelector('.mobile-menu').addEventListener('click', function() {
+            const navLinks = document.querySelector('.nav-links');
+            navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
+        });
+    </script>
+</body>
+</html>
