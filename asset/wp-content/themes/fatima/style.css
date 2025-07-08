@@ -4210,6 +4210,35 @@ p > object:only-child {
 }
 
 /*--------------------------------------------------------------
+19.5 Responsive Background Images
+--------------------------------------------------------------*/
+
+/* Responsividade para imagens de fundo do Revolution Slider */
+.tp-bgimg {
+	background-position: center center !important;
+}
+
+@media screen and (min-width: 48em) {
+	.tp-bgimg {
+		background-position: right center !important;
+	}
+}
+
+@media screen and (max-width: 47.9em) {
+	.tp-bgimg {
+		background-position: center center !important;
+		background-size: cover !important;
+	}
+}
+
+@media screen and (max-width: 30em) {
+	.tp-bgimg {
+		background-position: center top !important;
+		background-size: cover !important;
+	}
+}
+
+/*--------------------------------------------------------------
 20.0 Print
 --------------------------------------------------------------*/
 
