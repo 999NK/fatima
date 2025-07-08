@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -243,7 +242,7 @@
             .nav-links {
                 display: none;
             }
-            
+
             .mobile-menu {
                 display: block;
                 background: none;
@@ -272,10 +271,10 @@
         <nav>
             <div class="logo">Nossa Senhora de Fátima</div>
             <ul class="nav-links">
-                <li><a href="/">Home</a></li>
-                <li><a href="/quemsomos.html">Quem Somos</a></li>
-                <li><a href="/brindes-catolicos.html">Brindes Católicos</a></li>
-                <li><a href="/doacao.html" class="active">Doação</a></li>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="quemsomos.html">Quem Somos</a></li>
+                <li><a href="brindes-catolicos.html">Brindes Católicos</a></li>
+                <li><a href="doacao.html" class="active">Doação</a></li>
             </ul>
             <button class="mobile-menu">☰</button>
         </nav>
@@ -284,7 +283,7 @@
     <main>
         <div class="container">
             <h1>Fazer Doação</h1>
-            
+
             <div class="intro">
                 <h2>Sua ajuda faz a diferença! 🙏</h2>
                 <p>Contribua com nossa missão de levar alimento e esperança às famílias necessitadas. Cada doação é uma bênção que multiplica o amor de Nossa Senhora de Fátima.</p>
@@ -397,7 +396,7 @@
             btn.addEventListener('click', function() {
                 document.querySelectorAll('.amount-btn').forEach(b => b.classList.remove('selected'));
                 this.classList.add('selected');
-                
+
                 const customAmount = document.getElementById('customAmount');
                 if (this.dataset.amount === 'custom') {
                     customAmount.style.display = 'block';
@@ -420,23 +419,23 @@
         // Form submission
         document.getElementById('donationForm').addEventListener('submit', function(e) {
             e.preventDefault();
-            
+
             const selectedAmount = document.querySelector('.amount-btn.selected');
             const selectedPayment = document.querySelector('.payment-method.selected');
-            
+
             if (!selectedAmount) {
                 alert('Por favor, selecione um valor para doação.');
                 return;
             }
-            
+
             if (!selectedPayment) {
                 alert('Por favor, selecione uma forma de pagamento.');
                 return;
             }
-            
+
             // Simulate form processing
             alert('Obrigado por sua doação! Em breve você receberá as instruções de pagamento por e-mail.');
-            
+
             // Here you would typically send the data to your backend
             console.log('Donation data:', {
                 amount: selectedAmount.dataset.amount === 'custom' ? 
@@ -737,10 +736,10 @@
         <nav>
             <div class="logo">Nossa Senhora de Fátima</div>
             <ul class="nav-links">
-                <li><a href="/">Home</a></li>
-                <li><a href="/quemsomos.html">Quem Somos</a></li>
-                <li><a href="/brindes-catolicos.html">Brindes Católicos</a></li>
-                <li><a href="/doacao.html" class="active">Doação</a></li>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="quemsomos.html">Quem Somos</a></li>
+                <li><a href="brindes-catolicos.html">Brindes Católicos</a></li>
+                <li><a href="doacao.html" class="active">Doação</a></li>
             </ul>
             <button class="mobile-menu">☰</button>
         </nav>
@@ -749,7 +748,7 @@
     <main>
         <div class="container">
             <h1 class="page-title">Faça sua Doação</h1>
-            
+
             <div class="donation-intro">
                 <p>Sua generosidade faz a diferença na vida de famílias necessitadas. Cada doação é uma bênção que se multiplica em esperança e amor.</p>
                 <p><strong>"Quem dá aos pobres, empresta a Deus" (Provérbios 19:17)</strong></p>
@@ -800,7 +799,7 @@
 
             <form class="donation-form" onsubmit="processDonation(event)">
                 <h3 style="margin-bottom: 1.5rem; color: #8B4513;">Dados para Doação</h3>
-                
+
                 <div class="form-row">
                     <div class="form-group">
                         <label for="name">Nome Completo *</label>
@@ -881,12 +880,12 @@
         function selectValue(amount) {
             selectedAmount = amount;
             document.getElementById('customAmount').value = '';
-            
+
             // Remove selected class from all cards
             document.querySelectorAll('.value-card').forEach(card => {
                 card.classList.remove('selected');
             });
-            
+
             // Add selected class to clicked card
             event.target.closest('.value-card').classList.add('selected');
         }
@@ -894,7 +893,7 @@
         function selectCustomValue() {
             const customAmount = document.getElementById('customAmount').value;
             selectedAmount = parseFloat(customAmount) || 0;
-            
+
             // Remove selected class from all preset cards
             document.querySelectorAll('.value-card').forEach(card => {
                 card.classList.remove('selected');
@@ -903,37 +902,37 @@
 
         function selectPayment(method) {
             selectedPayment = method;
-            
+
             // Remove selected class from all payment methods
             document.querySelectorAll('.payment-method').forEach(method => {
                 method.classList.remove('selected');
             });
-            
+
             // Add selected class to clicked method
             event.target.classList.add('selected');
         }
 
         function processDonation(event) {
             event.preventDefault();
-            
+
             if (selectedAmount <= 0) {
                 alert('Por favor, selecione um valor para doação.');
                 return;
             }
-            
+
             if (!selectedPayment) {
                 alert('Por favor, selecione um método de pagamento.');
                 return;
             }
-            
+
             const name = document.getElementById('name').value;
             const email = document.getElementById('email').value;
-            
+
             if (!name || !email) {
                 alert('Por favor, preencha os campos obrigatórios.');
                 return;
             }
-            
+
             // Simular processamento
             alert(`Obrigado, ${name}! Sua doação de R$ ${selectedAmount.toFixed(2)} será processada via ${selectedPayment.toUpperCase()}. Em breve você receberá as instruções no e-mail ${email}.`);
         }
