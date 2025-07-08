@@ -453,3 +453,494 @@
     </script>
 </body>
 </html>
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doação - Campanha Vinde Nossa Senhora de Fátima</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        header {
+            background: linear-gradient(135deg, #8B4513, #CD853F);
+            color: white;
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #FFD700;
+        }
+
+        main {
+            margin-top: 80px;
+            min-height: calc(100vh - 80px);
+            padding: 2rem;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .page-title {
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            text-align: center;
+            color: #8B4513;
+        }
+
+        .donation-intro {
+            text-align: center;
+            margin-bottom: 3rem;
+            font-size: 1.1rem;
+            color: #666;
+        }
+
+        .donation-values {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .value-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            text-align: center;
+            transition: transform 0.3s;
+            border: 2px solid transparent;
+            cursor: pointer;
+        }
+
+        .value-card:hover {
+            transform: translateY(-5px);
+            border-color: #CD853F;
+        }
+
+        .value-card.selected {
+            border-color: #8B4513;
+            background: #f9f9f9;
+        }
+
+        .value-amount {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #8B4513;
+            margin-bottom: 1rem;
+        }
+
+        .value-description {
+            color: #666;
+            margin-bottom: 1rem;
+        }
+
+        .value-helps {
+            font-size: 0.9rem;
+            color: #8B4513;
+            font-style: italic;
+        }
+
+        .custom-value {
+            margin: 2rem 0;
+            text-align: center;
+        }
+
+        .custom-value input {
+            padding: 1rem;
+            font-size: 1.1rem;
+            border: 2px solid #ddd;
+            border-radius: 5px;
+            width: 200px;
+            text-align: center;
+        }
+
+        .custom-value input:focus {
+            border-color: #CD853F;
+            outline: none;
+        }
+
+        .donation-form {
+            background: #f8f8f8;
+            padding: 2rem;
+            border-radius: 10px;
+            margin-top: 2rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: bold;
+            color: #333;
+        }
+
+        .form-group input,
+        .form-group select {
+            width: 100%;
+            padding: 1rem;
+            border: 2px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus {
+            border-color: #CD853F;
+            outline: none;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+
+        .btn {
+            display: inline-block;
+            background: #CD853F;
+            color: white;
+            padding: 1rem 2rem;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background 0.3s;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+            width: 100%;
+            margin-top: 1rem;
+        }
+
+        .btn:hover {
+            background: #8B4513;
+        }
+
+        .payment-methods {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 1rem;
+            margin: 1rem 0;
+        }
+
+        .payment-method {
+            padding: 1rem;
+            border: 2px solid #ddd;
+            border-radius: 5px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .payment-method:hover,
+        .payment-method.selected {
+            border-color: #CD853F;
+            background: #f9f9f9;
+        }
+
+        footer {
+            background: #333;
+            color: white;
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .mobile-menu {
+            display: none;
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .mobile-menu {
+                display: block;
+                background: none;
+                border: none;
+                color: white;
+                font-size: 1.5rem;
+                cursor: pointer;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+
+            .payment-methods {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-info {
+                flex-direction: column;
+                gap: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">Nossa Senhora de Fátima</div>
+            <ul class="nav-links">
+                <li><a href="/">Quem Somos</a></li>
+                <li><a href="/brindes-catolicos">Brindes Católicos</a></li>
+                <li><a href="/doacao">Doação</a></li>
+            </ul>
+            <button class="mobile-menu">☰</button>
+        </nav>
+    </header>
+
+    <main>
+        <div class="container">
+            <h1 class="page-title">Faça sua Doação</h1>
+            
+            <div class="donation-intro">
+                <p>Sua generosidade faz a diferença na vida de famílias necessitadas. Cada doação é uma bênção que se multiplica em esperança e amor.</p>
+                <p><strong>"Quem dá aos pobres, empresta a Deus" (Provérbios 19:17)</strong></p>
+            </div>
+
+            <div class="donation-values">
+                <div class="value-card" onclick="selectValue(25)">
+                    <div class="value-amount">R$ 25,00</div>
+                    <div class="value-description">Doação Inicial</div>
+                    <div class="value-helps">Ajuda na compra de itens básicos de higiene</div>
+                </div>
+
+                <div class="value-card" onclick="selectValue(50)">
+                    <div class="value-amount">R$ 50,00</div>
+                    <div class="value-description">Doação Solidária</div>
+                    <div class="value-helps">Contribui para uma cesta básica parcial</div>
+                </div>
+
+                <div class="value-card" onclick="selectValue(100)">
+                    <div class="value-amount">R$ 100,00</div>
+                    <div class="value-description">Doação Generosa</div>
+                    <div class="value-helps">Garante uma cesta básica completa</div>
+                </div>
+
+                <div class="value-card" onclick="selectValue(200)">
+                    <div class="value-amount">R$ 200,00</div>
+                    <div class="value-description">Doação Abençoada</div>
+                    <div class="value-helps">Sustenta uma família por uma semana</div>
+                </div>
+
+                <div class="value-card" onclick="selectValue(500)">
+                    <div class="value-amount">R$ 500,00</div>
+                    <div class="value-description">Doação Especial</div>
+                    <div class="value-helps">Ajuda múltiplas famílias em necessidade</div>
+                </div>
+
+                <div class="value-card" onclick="selectValue(1000)">
+                    <div class="value-amount">R$ 1.000,00</div>
+                    <div class="value-description">Doação Transformadora</div>
+                    <div class="value-helps">Impacta significativamente nossa missão</div>
+                </div>
+            </div>
+
+            <div class="custom-value">
+                <label for="customAmount">Ou digite outro valor:</label><br>
+                <input type="number" id="customAmount" placeholder="R$ 0,00" min="1" onchange="selectCustomValue()">
+            </div>
+
+            <form class="donation-form" onsubmit="processDonation(event)">
+                <h3 style="margin-bottom: 1.5rem; color: #8B4513;">Dados para Doação</h3>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="name">Nome Completo *</label>
+                        <input type="text" id="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">E-mail *</label>
+                        <input type="email" id="email" required>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="phone">Telefone</label>
+                        <input type="tel" id="phone">
+                    </div>
+                    <div class="form-group">
+                        <label for="city">Cidade</label>
+                        <input type="text" id="city">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>Método de Pagamento *</label>
+                    <div class="payment-methods">
+                        <div class="payment-method" onclick="selectPayment('pix')">
+                            <strong>PIX</strong><br>
+                            <small>Instantâneo</small>
+                        </div>
+                        <div class="payment-method" onclick="selectPayment('cartao')">
+                            <strong>Cartão</strong><br>
+                            <small>Débito/Crédito</small>
+                        </div>
+                        <div class="payment-method" onclick="selectPayment('boleto')">
+                            <strong>Boleto</strong><br>
+                            <small>2 dias úteis</small>
+                        </div>
+                        <div class="payment-method" onclick="selectPayment('transferencia')">
+                            <strong>Transferência</strong><br>
+                            <small>Bancária</small>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="message">Mensagem (opcional)</label>
+                    <textarea id="message" rows="3" style="width: 100%; padding: 1rem; border: 2px solid #ddd; border-radius: 5px; resize: vertical;"></textarea>
+                </div>
+
+                <button type="submit" class="btn">Confirmar Doação</button>
+            </form>
+
+            <div style="margin-top: 3rem; background: #f9f9f9; padding: 2rem; border-radius: 10px;">
+                <h3 style="color: #8B4513; margin-bottom: 1rem;">Dados Bancários para Transferência</h3>
+                <p><strong>Banco:</strong> Banco do Brasil</p>
+                <p><strong>Agência:</strong> 1234-5</p>
+                <p><strong>Conta:</strong> 67890-1</p>
+                <p><strong>CNPJ:</strong> 60.758.505/0001-41</p>
+                <p><strong>PIX:</strong> doacoes@fatima.org.br</p>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="contact-info">
+            <div>📍 Rua Virgílio Rodrigues, 44 - Tremembé, São Paulo - SP</div>
+            <div>📞 (11) 2206-4540</div>
+            <div>✉️ contato@fatima.org.br</div>
+        </div>
+        <p>&copy; 2025 Campanha Vinde Nossa Senhora de Fátima, não tardeis!</p>
+        <p>CNPJ: 60.758.505/0001-41</p>
+    </footer>
+
+    <script>
+        let selectedAmount = 0;
+        let selectedPayment = '';
+
+        function selectValue(amount) {
+            selectedAmount = amount;
+            document.getElementById('customAmount').value = '';
+            
+            // Remove selected class from all cards
+            document.querySelectorAll('.value-card').forEach(card => {
+                card.classList.remove('selected');
+            });
+            
+            // Add selected class to clicked card
+            event.target.closest('.value-card').classList.add('selected');
+        }
+
+        function selectCustomValue() {
+            const customAmount = document.getElementById('customAmount').value;
+            selectedAmount = parseFloat(customAmount) || 0;
+            
+            // Remove selected class from all preset cards
+            document.querySelectorAll('.value-card').forEach(card => {
+                card.classList.remove('selected');
+            });
+        }
+
+        function selectPayment(method) {
+            selectedPayment = method;
+            
+            // Remove selected class from all payment methods
+            document.querySelectorAll('.payment-method').forEach(method => {
+                method.classList.remove('selected');
+            });
+            
+            // Add selected class to clicked method
+            event.target.classList.add('selected');
+        }
+
+        function processDonation(event) {
+            event.preventDefault();
+            
+            if (selectedAmount <= 0) {
+                alert('Por favor, selecione um valor para doação.');
+                return;
+            }
+            
+            if (!selectedPayment) {
+                alert('Por favor, selecione um método de pagamento.');
+                return;
+            }
+            
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            
+            if (!name || !email) {
+                alert('Por favor, preencha os campos obrigatórios.');
+                return;
+            }
+            
+            // Simular processamento
+            alert(`Obrigado, ${name}! Sua doação de R$ ${selectedAmount.toFixed(2)} será processada via ${selectedPayment.toUpperCase()}. Em breve você receberá as instruções no e-mail ${email}.`);
+        }
+
+        // Menu mobile toggle
+        document.querySelector('.mobile-menu').addEventListener('click', function() {
+            const navLinks = document.querySelector('.nav-links');
+            navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
+        });
+    </script>
+</body>
+</html>
