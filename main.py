@@ -20,7 +20,7 @@ class MyHTTPRequestHandler(http.server.SimpleHTTPRequestHandler):
 if __name__ == "__main__":
     os.chdir('.')
     
-    with socketserver.TCPServer(("0.0.0.0", PORT), MyHTTPRequestHandler) as httpd:
-        print(f"Servidor rodando em http://0.0.0.0:{PORT}")
+    with socketserver.TCPServer(("", PORT), MyHTTPRequestHandler) as httpd:
+        print(f"Servidor rodando na porta {PORT}")
         print("Pressione Ctrl+C para parar o servidor")
         httpd.serve_forever()
