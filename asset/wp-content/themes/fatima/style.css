@@ -4239,6 +4239,80 @@ p > object:only-child {
 }
 
 /*--------------------------------------------------------------
+19.5 Custom Navigation Buttons
+--------------------------------------------------------------*/
+
+/* Estilos para os novos botões de navegação */
+.elementor-element-quem-somos,
+.elementor-element-brindes,
+.elementor-element-premios {
+	display: inline-block !important;
+	margin-left: 10px !important;
+	vertical-align: top !important;
+}
+
+.elementor-element-quem-somos .elementor-button,
+.elementor-element-brindes .elementor-button,
+.elementor-element-premios .elementor-button {
+	background-color: #222 !important;
+	color: #fff !important;
+	padding: 8px 16px !important;
+	border-radius: 3px !important;
+	text-decoration: none !important;
+	font-size: 12px !important;
+	font-weight: 700 !important;
+	transition: background-color 0.3s ease !important;
+}
+
+.elementor-element-quem-somos .elementor-button:hover,
+.elementor-element-brindes .elementor-button:hover,
+.elementor-element-premios .elementor-button:hover {
+	background-color: #555 !important;
+}
+
+/* Aumentar altura do banner */
+.tp-bgimg {
+	min-height: 500px !important;
+	height: 500px !important;
+}
+
+.rev_slider_wrapper {
+	min-height: 500px !important;
+	height: 500px !important;
+}
+
+#rev_slider_1_1 {
+	min-height: 500px !important;
+	height: 500px !important;
+}
+
+/* Responsividade para dispositivos móveis */
+@media screen and (max-width: 768px) {
+	.elementor-element-quem-somos,
+	.elementor-element-brindes,
+	.elementor-element-premios {
+		display: block !important;
+		margin: 5px 0 !important;
+		text-align: center !important;
+	}
+	
+	.tp-bgimg {
+		min-height: 300px !important;
+		height: 300px !important;
+	}
+	
+	.rev_slider_wrapper {
+		min-height: 300px !important;
+		height: 300px !important;
+	}
+	
+	#rev_slider_1_1 {
+		min-height: 300px !important;
+		height: 300px !important;
+	}
+}
+
+/*--------------------------------------------------------------
 20.0 Print
 --------------------------------------------------------------*/
 
