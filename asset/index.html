@@ -1,278 +1,307 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Campanha Vinde Nossa Senhora de Fátima</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Campanha Vinde Nossa Senhora de Fátima</title>
+		<style>
+			* {
+				margin: 0;
+				padding: 0;
+				box-sizing: border-box;
+			}
 
-        body {
-            font-family: Arial, sans-serif;
-            line-height: 1.6;
-            color: #333;
-        }
+			body {
+				font-family: Arial, sans-serif;
+				line-height: 1.6;
+				color: #333;
+			}
 
-        header {
-            background: linear-gradient(135deg, #8B4513, #CD853F);
-            color: white;
-            padding: 1rem 0;
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 1000;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-        }
+			header {
+				background: linear-gradient(135deg, #8b4513, #cd853f);
+				color: white;
+				padding: 1rem 0;
+				position: fixed;
+				width: 100%;
+				top: 0;
+				z-index: 1000;
+				box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+			}
 
-        nav {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 0 2rem;
-        }
+			nav {
+				max-width: 1200px;
+				margin: 0 auto;
+				display: flex;
+				justify-content: space-between;
+				align-items: center;
+				padding: 0 2rem;
+			}
 
-        .logo {
-            font-size: 1.5rem;
-            font-weight: bold;
-        }
+			.logo {
+				font-size: 1.5rem;
+				font-weight: bold;
+			}
 
-        .nav-links {
-            display: flex;
-            list-style: none;
-            gap: 2rem;
-        }
+			.nav-links {
+				display: flex;
+				list-style: none;
+				gap: 2rem;
+			}
 
-        .nav-links a {
-            color: white;
-            text-decoration: none;
-            transition: color 0.3s;
-        }
+			.nav-links a {
+				color: white;
+				text-decoration: none;
+				transition: color 0.3s;
+			}
 
-        .nav-links a:hover {
-            color: #FFD700;
-        }
+			.nav-links a:hover {
+				color: #ffd700;
+			}
 
-        main {
-            margin-top: 80px;
-            min-height: calc(100vh - 80px);
-        }
+			main {
+				margin-top: 80px;
+				min-height: calc(100vh - 80px);
+			}
 
-        .hero {
-            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><rect fill="%23e6f3ff" width="1200" height="600"/><circle fill="%23b3d9ff" cx="200" cy="150" r="50"/><circle fill="%2380bfff" cx="800" cy="400" r="80"/><circle fill="%23cce6ff" cx="1000" cy="200" r="60"/></svg>');
-            background-size: cover;
-            background-position: center;
-            height: 60vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            color: white;
-        }
+			.hero {
+				background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+					url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><rect fill="%23e6f3ff" width="1200" height="600"/><circle fill="%23b3d9ff" cx="200" cy="150" r="50"/><circle fill="%2380bfff" cx="800" cy="400" r="80"/><circle fill="%23cce6ff" cx="1000" cy="200" r="60"/></svg>');
+				background-size: cover;
+				background-position: center;
+				height: 60vh;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				text-align: center;
+				color: white;
+			}
 
-        .hero-content h1 {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
-        }
+			.hero-content h1 {
+				font-size: 3rem;
+				margin-bottom: 1rem;
+				text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+			}
 
-        .hero-content p {
-            font-size: 1.2rem;
-            margin-bottom: 2rem;
-            text-shadow: 1px 1px 2px rgba(0,0,0,0.7);
-        }
+			.hero-content p {
+				font-size: 1.2rem;
+				margin-bottom: 2rem;
+				text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
+			}
 
-        .btn {
-            display: inline-block;
-            background: #CD853F;
-            color: white;
-            padding: 1rem 2rem;
-            text-decoration: none;
-            border-radius: 5px;
-            transition: background 0.3s;
-            border: none;
-            cursor: pointer;
-            font-size: 1rem;
-        }
+			.btn {
+				display: inline-block;
+				background: #cd853f;
+				color: white;
+				padding: 1rem 2rem;
+				text-decoration: none;
+				border-radius: 5px;
+				transition: background 0.3s;
+				border: none;
+				cursor: pointer;
+				font-size: 1rem;
+			}
 
-        .btn:hover {
-            background: #8B4513;
-        }
+			.btn:hover {
+				background: #8b4513;
+			}
 
-        .section {
-            padding: 4rem 2rem;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
+			.section {
+				padding: 4rem 2rem;
+				max-width: 1200px;
+				margin: 0 auto;
+			}
 
-        .section h2 {
-            font-size: 2.5rem;
-            margin-bottom: 2rem;
-            text-align: center;
-            color: #8B4513;
-        }
+			.section h2 {
+				font-size: 2.5rem;
+				margin-bottom: 2rem;
+				text-align: center;
+				color: #8b4513;
+			}
 
-        .content-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
-        }
+			.content-grid {
+				display: grid;
+				grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+				gap: 2rem;
+				margin-top: 3rem;
+			}
 
-        .card {
-            background: white;
-            padding: 2rem;
-            border-radius: 10px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-            text-align: center;
-            transition: transform 0.3s;
-        }
+			.card {
+				background: white;
+				padding: 2rem;
+				border-radius: 10px;
+				box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+				text-align: center;
+				transition: transform 0.3s;
+			}
 
-        .card:hover {
-            transform: translateY(-5px);
-        }
+			.card:hover {
+				transform: translateY(-5px);
+			}
 
-        .card h3 {
-            color: #8B4513;
-            margin-bottom: 1rem;
-        }
+			.card h3 {
+				color: #8b4513;
+				margin-bottom: 1rem;
+			}
 
-        footer {
-            background: #333;
-            color: white;
-            text-align: center;
-            padding: 2rem;
-        }
+			footer {
+				background: #333;
+				color: white;
+				text-align: center;
+				padding: 2rem;
+			}
 
-        .contact-info {
-            display: flex;
-            justify-content: center;
-            gap: 2rem;
-            margin-bottom: 1rem;
-            flex-wrap: wrap;
-        }
+			.contact-info {
+				display: flex;
+				justify-content: center;
+				gap: 2rem;
+				margin-bottom: 1rem;
+				flex-wrap: wrap;
+			}
 
-        .mobile-menu {
-            display: none;
-        }
+			.mobile-menu {
+				display: none;
+			}
 
-        @media (max-width: 768px) {
-            .nav-links {
-                display: none;
-            }
+			@media (max-width: 768px) {
+				.nav-links {
+					display: none;
+				}
 
-            .mobile-menu {
-                display: block;
-                background: none;
-                border: none;
-                color: white;
-                font-size: 1.5rem;
-                cursor: pointer;
-            }
+				.mobile-menu {
+					display: block;
+					background: none;
+					border: none;
+					color: white;
+					font-size: 1.5rem;
+					cursor: pointer;
+				}
 
-            .hero-content h1 {
-                font-size: 2rem;
-            }
+				.hero-content h1 {
+					font-size: 2rem;
+				}
 
-            .section {
-                padding: 2rem 1rem;
-            }
+				.section {
+					padding: 2rem 1rem;
+				}
 
-            .contact-info {
-                flex-direction: column;
-                gap: 1rem;
-            }
-        }
-    </style>
-</head>
-<body>
-    <header>
-        <nav>
-            <div class="logo">Nossa Senhora de Fátima</div>
-            <ul class="nav-links">
-                <li><a href="/">Quem Somos</a></li>
-                <li><a href="/brindes-catolicos">Brindes Católicos</a></li>
-                <li><a href="/doacao">Doação</a></li>
-            </ul>
-            <button class="mobile-menu">☰</button>
-        </nav>
-    </header>
+				.contact-info {
+					flex-direction: column;
+					gap: 1rem;
+				}
+			}
+		</style>
+	</head>
+	<body>
+		<header>
+			<nav>
+				<div class="logo">Nossa Senhora de Fátima</div>
+				<ul class="nav-links">
+					<li><a href="/">Quem Somos</a></li>
+					<li><a href="/brindes-catolicos">Brindes Católicos</a></li>
+					<li><a href="/doacao">Doação</a></li>
+				</ul>
+				<button class="mobile-menu">☰</button>
+			</nav>
+		</header>
 
-    <main>
-        <section class="hero">
-            <div class="hero-content">
-                <h1>Campanha Vinde Nossa Senhora de Fátima</h1>
-                <p>Não tardeis! Ajudando famílias necessitadas com fé e amor</p>
-                <a href="/doacao" class="btn">Fazer Doação</a>
-            </div>
-        </section>
+		<main>
+			<section class="hero">
+				<div class="hero-content">
+					<h1>Campanha Vinde Nossa Senhora de Fátima</h1>
+					<p>Não tardeis! Ajudando famílias necessitadas com fé e amor</p>
+					<a href="/doacao" class="btn">Fazer Doação</a>
+				</div>
+			</section>
 
-        <section class="section">
-            <h2>Quem Somos</h2>
-            <p style="font-size: 1.1rem; text-align: center; margin-bottom: 3rem;">
-                A Campanha Vinde Nossa Senhora de Fátima é uma iniciativa católica dedicada a ajudar famílias em situação de vulnerabilidade social. Inspirados pela mensagem de Nossa Senhora de Fátima, trabalhamos para levar esperança, alimento e dignidade àqueles que mais precisam.
-            </p>
+			<section class="section">
+				<h2>Quem Somos</h2>
+				<p style="font-size: 1.1rem; text-align: center; margin-bottom: 3rem">
+					A Campanha Vinde Nossa Senhora de Fátima é uma iniciativa católica
+					dedicada a ajudar famílias em situação de vulnerabilidade social.
+					Inspirados pela mensagem de Nossa Senhora de Fátima, trabalhamos para
+					levar esperança, alimento e dignidade àqueles que mais precisam.
+				</p>
 
-            <div class="content-grid">
-                <div class="card">
-                    <h3>Nossa Missão</h3>
-                    <p>Distribuir cestas básicas e itens essenciais para famílias carentes, seguindo os ensinamentos de Jesus Cristo: "Em verdade vos digo que quando o fizestes a um destes pequeninos é a Mim que o fizestes" (Mt. 25,35-40).</p>
-                </div>
+				<div class="content-grid">
+					<div class="card">
+						<h3>Nossa Missão</h3>
+						<p>
+							Distribuir cestas básicas e itens essenciais para famílias
+							carentes, seguindo os ensinamentos de Jesus Cristo: "Em verdade
+							vos digo que quando o fizestes a um destes pequeninos é a Mim que
+							o fizestes" (Mt. 25,35-40).
+						</p>
+					</div>
 
-                <div class="card">
-                    <h3>Vinde e Ajudai</h3>
-                    <p>Nossa nova frente de ação promove a distribuição de cestas básicas para regiões especialmente atingidas pela falta de alimentos. Lembramos que "quem dá aos pobres, empresta a Deus".</p>
-                </div>
+					<div class="card">
+						<h3>Vinde e Ajudai</h3>
+						<p>
+							Nossa nova frente de ação promove a distribuição de cestas básicas
+							para regiões especialmente atingidas pela falta de alimentos.
+							Lembramos que "quem dá aos pobres, empresta a Deus".
+						</p>
+					</div>
 
-                <div class="card">
-                    <h3>Nossa Fé</h3>
-                    <p>Guiados pela devoção a Nossa Senhora de Fátima e pela oração do terço, nossa campanha une fé e ação social, levando o amor de Maria aos mais necessitados.</p>
-                </div>
-            </div>
-        </section>
+					<div class="card">
+						<h3>Nossa Fé</h3>
+						<p>
+							Guiados pela devoção a Nossa Senhora de Fátima e pela oração do
+							terço, nossa campanha une fé e ação social, levando o amor de
+							Maria aos mais necessitados.
+						</p>
+					</div>
+				</div>
+			</section>
 
-        <section class="section" style="background: #f8f8f8;">
-            <h2>Como Ajudamos</h2>
-            <div class="content-grid">
-                <div class="card">
-                    <h3>Cestas Básicas</h3>
-                    <p>Distribuição regular de alimentos essenciais para famílias em situação de vulnerabilidade alimentar.</p>
-                </div>
+			<section class="section" style="background: #f8f8f8">
+				<h2>Como Ajudamos</h2>
+				<div class="content-grid">
+					<div class="card">
+						<h3>Cestas Básicas</h3>
+						<p>
+							Distribuição regular de alimentos essenciais para famílias em
+							situação de vulnerabilidade alimentar.
+						</p>
+					</div>
 
-                <div class="card">
-                    <h3>Itens de Higiene</h3>
-                    <p>Fornecimento de produtos de limpeza e higiene pessoal para manter a dignidade das famílias.</p>
-                </div>
+					<div class="card">
+						<h3>Itens de Higiene</h3>
+						<p>
+							Fornecimento de produtos de limpeza e higiene pessoal para manter
+							a dignidade das famílias.
+						</p>
+					</div>
 
-                <div class="card">
-                    <h3>Apoio Espiritual</h3>
-                    <p>Oferecemos oração, terços e materiais religiosos para fortalecer a fé das famílias assistidas.</p>
-                </div>
-            </div>
-        </section>
-    </main>
+					<div class="card">
+						<h3>Apoio Espiritual</h3>
+						<p>
+							Oferecemos oração, terços e materiais religiosos para fortalecer a
+							fé das famílias assistidas.
+						</p>
+					</div>
+				</div>
+			</section>
+		</main>
 
-    <footer>
-        <div class="contact-info">
-            <div>📍 Rua Virgílio Rodrigues, 44 - Tremembé, São Paulo - SP</div>
-            <div>📞 (11) 2206-4540</div>
-            <div>✉️ contato@fatima.org.br</div>
-        </div>
-        <p>&copy; 2025 Campanha Vinde Nossa Senhora de Fátima, não tardeis!</p>
-        <p>CNPJ: 60.758.505/0001-41</p>
-    </footer>
+		<footer>
+			<div class="contact-info">
+				<div>📍 Rua Virgílio Rodrigues, 44 - Tremembé, São Paulo - SP</div>
+				<div>📞 (11) 2206-4540</div>
+				<div>✉️ contato@fatima.org.br</div>
+			</div>
+			<p>&copy; 2025 Campanha Vinde Nossa Senhora de Fátima, não tardeis!</p>
+			<p>CNPJ: 60.758.505/0001-41</p>
+		</footer>
 
-    <script>
-        // Menu mobile toggle
-        document.querySelector('.mobile-menu').addEventListener('click', function() {
-            const navLinks = document.querySelector('.nav-links');
-            navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
-        });
-    </script>
-</body>
+		<script>
+			// Menu mobile toggle
+			document
+				.querySelector(".mobile-menu")
+				.addEventListener("click", function () {
+					const navLinks = document.querySelector(".nav-links");
+					navLinks.style.display =
+						navLinks.style.display === "flex" ? "none" : "flex";
+				});
+		</script>
+	</body>
 </html>
