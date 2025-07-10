@@ -20,8 +20,8 @@ class MyHTTPRequestHandler(http.server.SimpleHTTPRequestHandler):
         
         # Mapear rotas para arquivos HTML
         if self.path == '/':
-            self.path = '/index.html'
-        elif self.path == '/premios':
+            self.path = 'index.html'
+        elif self.path == 'asset/premios':
             self.path = '/premios.html'
         elif self.path == '/doacao':
             self.path = '/doacao.html'
