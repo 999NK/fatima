@@ -4,7 +4,7 @@ import socketserver
 import os
 import mimetypes
 
-PORT = 8080
+PORT = 5000
 
 class MyHTTPRequestHandler(http.server.SimpleHTTPRequestHandler):
     def end_headers(self):
@@ -58,6 +58,23 @@ class MyHTTPRequestHandler(http.server.SimpleHTTPRequestHandler):
         # Corrigir caminhos que começam com /asset/
         if self.path.startswith('/asset/'):
             self.path = self.path[6:]  # Remove '/asset' do início
+        
+        # Mapear caminhos comuns do WordPress
+        if self.path.startswith('/wp-content/'):
+            # Já está correto
+            pass
+        elif self.path.startswith('/wp-includes/'):
+            # Já está correto
+            pass
+        elif self.path.startswith('/ajax/'):
+            # Já está correto
+            pass
+        elif self.path.startswith('/cdn-cgi/'):
+            # Já está correto
+            pass
+        elif self.path.startswith('/sdks/'):
+            # Já está correto
+            pass
         
         # Remover query parameters para verificação de arquivo
         path_without_query = self.path.split('?')[0]
@@ -113,7 +130,7 @@ if __name__ == "__main__":
         if e.errno == 98:  # Address already in use
             print(f"❌ Erro: A porta {PORT} já está em uso!")
             print("💡 Tentando usar uma porta alternativa...")
-            PORT = 8081
+            PORT = 5001
             try:
                 with socketserver.TCPServer(("0.0.0.0", PORT), MyHTTPRequestHandler) as httpd:
                     print(f"✅ Servidor rodando em http://0.0.0.0:{PORT}")
