@@ -55,6 +55,10 @@ class MyHTTPRequestHandler(http.server.SimpleHTTPRequestHandler):
         elif self.path == '/brindes-catolicos':
             self.path = '/brindes-catolicos.html'
         
+        # Corrigir caminhos que começam com /asset/
+        if self.path.startswith('/asset/'):
+            self.path = self.path[6:]  # Remove '/asset' do início
+        
         # Remover query parameters para verificação de arquivo
         path_without_query = self.path.split('?')[0]
         
