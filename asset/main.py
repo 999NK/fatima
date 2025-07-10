@@ -16,6 +16,9 @@ class MyHTTPRequestHandler(http.server.SimpleHTTPRequestHandler):
         self.end_headers()
 
     def do_GET(self):
+        print(f"🔍 DEBUG: Requisição para: {self.path}")
+        
+        # Mapear rotas para arquivos HTML
         if self.path == '/':
             self.path = '/index.html'
         elif self.path == '/premios':
@@ -26,6 +29,20 @@ class MyHTTPRequestHandler(http.server.SimpleHTTPRequestHandler):
             self.path = '/quemsomos.html'
         elif self.path == '/brindes-catolicos':
             self.path = '/brindes-catolicos.html'
+        
+        # Verificar se o arquivo existe
+        file_path = os.path.join(os.getcwd(), self.path.lstrip('/'))
+        print(f"📁 DEBUG: Procurando arquivo em: {file_path}")
+        
+        if os.path.exists(file_path):
+            print(f"✅ DEBUG: Arquivo encontrado!")
+        else:
+            print(f"❌ DEBUG: Arquivo não encontrado!")
+            # Listar arquivos disponíveis para debug
+            print(f"📂 DEBUG: Arquivos disponíveis:")
+            for item in os.listdir(os.getcwd()):
+                print(f"   - {item}")
+        
         return super().do_GET()
 
 if __name__ == "__main__":
