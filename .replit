@@ -18,3 +18,7 @@ args = "cd asset && python main.py"
 [[ports]]
 localPort = 8080
 externalPort = 80
+
+[[ports]]
+localPort = 8081
+externalPort = 8081
