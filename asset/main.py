@@ -46,7 +46,7 @@ class MyHTTPRequestHandler(http.server.SimpleHTTPRequestHandler):
         # Mapear rotas para arquivos HTML
         original_path = self.path
         if self.path == '/':
-            self.path = 'index.html'
+            self.path = '../index.html'
         elif self.path == '/premios':
             self.path = '/premios.html'
         elif self.path == '/doacao':
@@ -81,7 +81,11 @@ class MyHTTPRequestHandler(http.server.SimpleHTTPRequestHandler):
         path_without_query = self.path.split('?')[0]
 
         # Verificar se o arquivo existe
-        file_path = os.path.join(os.getcwd(), path_without_query.lstrip('/'))
+        if path_without_query.startswith('../'):
+            # Para arquivos na raiz (como index.html)
+            file_path = os.path.join(os.path.dirname(os.getcwd()), path_without_query[3:])
+        else:
+            file_path = os.path.join(os.getcwd(), path_without_query.lstrip('/'))
         print(f"📁 DEBUG: Procurando arquivo em: {file_path}")
 
         if os.path.exists(file_path) and os.path.isfile(file_path):
