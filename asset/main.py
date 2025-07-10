@@ -17,24 +17,21 @@ class MyHTTPRequestHandler(http.server.SimpleHTTPRequestHandler):
 
     def do_GET(self):
         if self.path == '/':
-            self.path = '/asset/index.html'
+            self.path = '/index.html'
         elif self.path == '/premios':
-            self.path = '/asset/premios.html'
+            self.path = '/premios.html'
         elif self.path == '/doacao':
-            self.path = '/asset/doacao.html'
+            self.path = '/doacao.html'
         elif self.path == '/quemsomos':
-            self.path = '/asset/quemsomos.html'
+            self.path = '/quemsomos.html'
         elif self.path == '/brindes-catolicos':
-            self.path = '/asset/brindes-catolicos.html'
-        # Para páginas com extensão .html na URL
-        elif self.path.endswith('.html'):
-            # Se não tem o prefixo /asset/, adiciona
-            if not self.path.startswith('/asset/'):
-                self.path = '/asset' + self.path
+            self.path = '/brindes-catolicos.html'
         return super().do_GET()
 
 if __name__ == "__main__":
-    os.chdir('.')  # Define o diretório como raiz para arquivos estáticos
+    # Define o diretório da pasta asset como raiz para arquivos estáticos
+    script_dir = os.path.dirname(os.path.abspath(__file__))
+    os.chdir(script_dir)
 
     try:
         with socketserver.TCPServer(("0.0.0.0", PORT), MyHTTPRequestHandler) as httpd:
